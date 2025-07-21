@@ -1,3 +1,41 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import ItemShop from '../components/ItemShop.vue';
+
+interface Product {
+  id: number;
+  [key: string]: any;
+}
+
+const products = ref<Product[]>([]);
+
+onMounted(async () => {
+  try {
+    const response = await fetch('https://fakestoreapi.com/products');
+    products.value = await response.json();
+  } catch (error) {
+    console.error('Error fetching products:', error);
+  }
+});
+</script>
+
 <template>
-    <h1>Products</h1>
+  <div class="products-page">
+    <h1 class="text-center">Productos</h1>
+    <div class="products-grid text-center d-flex justify-content-center flex-wrap">
+      <ItemShop v-for="product in products" :key="product.id" :product="product" />
+    </div>
+  </div>
 </template>
+
+<style scoped>
+.products-page {
+  padding: 20px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+</style>
