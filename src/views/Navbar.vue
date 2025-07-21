@@ -4,10 +4,10 @@
       <router-link to="/" class="logo">Shop Vue</router-link>
       <ul class="nav-links">
         <li>
-          <router-link to="/">Home</router-link>
+          <router-link to="/">Inicio</router-link>
         </li>
         <li>
-          <router-link to="/products">Products</router-link>
+          <router-link to="/products">Productos</router-link>
         </li>
       </ul>
     </div>
