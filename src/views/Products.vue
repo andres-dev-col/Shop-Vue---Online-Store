@@ -28,14 +28,27 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped>
+<style>
 .products-page {
   padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.products-page h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  padding: 20px;
 }
 </style>
